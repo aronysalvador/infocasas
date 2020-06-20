@@ -45,7 +45,6 @@ const Home = () => {
   }
 
   function actualizarDataPost (data2) {  
-    console.log(data2)
     guardarPost(data2);
   }
 

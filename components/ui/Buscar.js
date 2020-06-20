@@ -32,12 +32,13 @@ const Buscar = () => {
 
     const [busqueda, guardarBusqueda] = useState('');
 
-    const buscarProducto = e => {
+    const buscarUsuario = e => {
         e.preventDefault();
 
         if(busqueda.trim() === '') return;
 
         //Redireccion al usuario a /buscar
+
         Router.push({
             pathname: '/buscar',
             query: {q: busqueda}
@@ -49,11 +50,11 @@ const Buscar = () => {
             css={css`
                 position:relative;
             `}
-            onSubmit= {buscarProducto}
+            onSubmit= {buscarUsuario}
         >
             <InputText 
                 type="text" 
-                placeholder="Buscar productos"
+                placeholder="Buscar Post"
                 onChange={ e  => guardarBusqueda(e.target.value)}
             />
 

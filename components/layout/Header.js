@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from '@emotion/styled';
 import { css } from '@emotion/core';
 import Navegacion from './Navegacion';
+import Buscar from '../ui/Buscar';
 
 const ContenedorHeader = styled.div`
     max-width:1200px;
@@ -45,6 +46,7 @@ const Header = () => {
                         <Logo>InfoCasa</Logo>
                     </Link>
 
+                    <Buscar />
 
                     <Navegacion />
                 </div>
