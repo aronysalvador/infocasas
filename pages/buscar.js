@@ -1,29 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { useRouter } from 'next/router';
-import clienteAxios2 from '../config/axios2';
 import DetallesPost from '../components/layout/DetallesPost';
+import usePost from '../hooks/usePost';
 
 const Buscar = () => {
   const router = useRouter();
   const {query : {q}  } = router;
 
   //Todos los productos
-  const [post, guardarPost] = useState([]);
+  const { post } = usePost();
   const [ resultado, guardarResultado ] = useState([]);
 
   useEffect(()=>{
-    const obtenerPost = async () => {
-      try {
-        const response = await clienteAxios2.get('/'); 
-        const data2 = response.data;
-        actualizarDataPost(data2);
         
-      } catch (error) {
-          console.log('No se puedo traer la data')
-      }
-    }
-    obtenerPost();    
     const busqueda = q.toLowerCase();
     const filtro = post.filter( post => {
        return (
@@ -35,10 +25,6 @@ const Buscar = () => {
     
    }, [q,post]);
 
-function actualizarDataPost (data) {  
-guardarPost(data);
-}
-  
    return (
     <div>
 
